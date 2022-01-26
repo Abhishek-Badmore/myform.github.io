@@ -1,0 +1,107 @@
+<div className="app-container">
+      <form onSubmit={handleEditFormSubmit}>
+        <table>
+          <thead>
+            <tr>
+              <th>Project Name</th>
+              <th>Client Name</th>
+              <th>Panel Name</th>
+              <th>Page Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contacts.map((contact) => (
+              <Fragment>
+                {editContactId === contact.id ? (
+                  <EditableRow
+                    editFormData={editFormData}
+                    handleEditFormChange={handleEditFormChange}
+                    handleCancelClick={handleCancelClick}
+                  />
+                ) : (
+                  <ReadOnlyRow
+                    contact={contact}
+                    handleEditClick={handleEditClick}
+                    handleDeleteClick={handleDeleteClick}
+                  />
+                )}
+              </Fragment>
+            ))}
+          </tbody>
+        </table>
+      </form>
+
+      <h2>Add a Contact</h2>
+      {/* <form onSubmit={handleAddFormSubmit}>
+        <input
+          type="text"
+          name="fullName"
+          required="required"
+          placeholder="Project Name"
+          onChange={handleAddFormChange}
+        /> */}
+      <select name="fullName"
+        required="required"
+        placeholder="Project Name"
+        onChange={handleAddFormChange} className="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+
+      {/* <input
+          type="text"
+          name="address"
+          required="required"
+          placeholder="Client Name"
+          onChange={handleAddFormChange}
+        /> */}
+
+      <select name="address"
+        required="required"
+        placeholder="Client Name"
+        onChange={handleAddFormChange} className="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+
+      {/* <input
+          type="text"
+          name="phoneNumber"
+          required="required"
+          placeholder="Panel Name"
+          onChange={handleAddFormChange}
+        /> */}
+      <select name="phoneNumber"
+        required="required"
+        placeholder="Panel Name"
+        onChange={handleAddFormChange} className="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+
+
+
+      {/* <input
+          type="email"
+          name="email"
+          required="required"
+          placeholder="Page Name"
+          onChange={handleAddFormChange}
+        /> */}
+      <select name="email" onChange={handleAddFormChange} type='email' className="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+
+      <button type="submit" onClick={handleAddFormSubmit}>Add</button>
+   
+    </div >
